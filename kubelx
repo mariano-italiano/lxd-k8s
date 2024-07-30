@@ -11,11 +11,12 @@ NODES="master worker1 worker2"
 kubeprovision()
 {
   # install LXD with snap
+  echo "==> Installing LXD"
   snap install lxd
   lxd init --auto
 
   # setup the nf_conntrack_max parameter
-  sysctl -w net/netfilter/nf_conntrack_max=131072
+  sysctl -w net/netfilter/nf_conntrack_max=131072 >/dev/null
 
   # check if we have k8s profile or create one
   lxc profile list | grep -qo k8s || (lxc profile create k8s && cat k8s-profile-config | lxc profile edit k8s)
