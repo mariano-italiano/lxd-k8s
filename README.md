@@ -20,10 +20,22 @@ $ lxc list
 |         |         | 10.147.62.28 (eth0)            |                                               |           |           |
 +---------+---------+--------------------------------+-----------------------------------------------+-----------+-----------+
 ```
-## IMPORTANT! Sysctl setting on host linux machine
-Run the below command on the Linux host where you are running lxd containers. Otherwise kube-proxy pods will fail.
+## Sysctl setting on host linux machine
+**IMPORTANT**:
+
+In order to sucessfully complete the deployment of the Kubernetes cluster the Linux host where you are running lxd containers need to have `nf_conntrack_max` value properly set. Otherwise kube-proxy pods will fail.
 ```
 sysctl -w net/netfilter/nf_conntrack_max=131072
+```
+
+Above is covered by the bootstrap script.
+
+## Instalation
+
+```sh
+$ git clone https://github.com/mariano-italiano/lxd-k8s.git
+$ cd lxd-k8s
+$ ./kubelx provision
 ```
 
 ## Verify installation
