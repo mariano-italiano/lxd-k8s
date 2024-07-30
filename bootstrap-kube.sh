@@ -3,11 +3,6 @@
 # This script has been tested on Ubuntu 22.04
 # For other versions of Ubuntu, you might need some tweaking
 
-echo "[TASK 0] Install and initialize LXD"
-snap install lxd
-lxd init --auto
-sysctl -w net/netfilter/nf_conntrack_max=131072
-
 echo "[TASK 1] Install essential packages"
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -qq >/dev/null
