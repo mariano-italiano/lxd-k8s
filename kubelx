@@ -13,7 +13,7 @@ kubeprovision()
   # install LXD with snap
   echo "==> Installing LXD"
   snap install lxd
-  lxd init --auto
+  lxd init --auto >/dev/null
 
   # setup the nf_conntrack_max parameter
   sysctl -w net/netfilter/nf_conntrack_max=131072 >/dev/null
