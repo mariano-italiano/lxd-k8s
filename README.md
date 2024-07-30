@@ -39,7 +39,7 @@ $ ./kubelx provision
 ```
 
 ## Verify installation
-### Exec into kmaster node
+### Exec into master node
 ```
 $ lxc exec master bash
 ```
@@ -55,8 +55,8 @@ worker2   Ready    <none>          45s    v1.29.7
 ### Verifying cluster version
 ```
 $ kubectl cluster-info
-Kubernetes master is running at https://10.127.221.187:6443
-KubeDNS is running at https://10.127.221.187:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Kubernetes control plane is running at https://10.74.48.192:6443
+CoreDNS is running at https://10.74.48.192:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 ```
 
 ## To access k8s cluster without execing into kmaster node
